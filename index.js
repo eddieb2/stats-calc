@@ -196,7 +196,8 @@ const calculator = (numsArray) => {
 	// IQR
 	const IQR = findIQR(sortedNums);
 	// Outliers
-	const outliers = findOutliers(sortedNums);
+	let outliers = findOutliers(sortedNums);
+	outliers = outliers.length === 0 ? 'No outliers' : outliers;
 
 	return {
 		mode,
