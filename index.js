@@ -145,7 +145,16 @@ const findQuartiles = (nums) => {
 	};
 };
 
-const findOutliers = () => null;
+const findIQR = (nums) => {
+	const quartiles = findQuartiles(nums);
+	let IQR = (quartiles.q3 = quartiles.q1);
+
+	return IQR;
+};
+
+const findOutliers = () => {
+	return null;
+};
 
 let sorted = sortnums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 console.log(findMode(sorted));
@@ -154,3 +163,4 @@ console.log(findMedian(sorted));
 console.log(findMinMax(sorted));
 console.log(findRange(sorted));
 console.log(findQuartiles(sorted));
+console.log(findIQR(sorted));
