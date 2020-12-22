@@ -118,6 +118,7 @@ const findQuartiles = (nums) => {
 	let q1, q2, q3;
 
 	// odd
+
 	if (nums.length % 2 !== 0) {
 		let midPoint = Math.floor(nums.length / 2);
 
@@ -210,7 +211,27 @@ const calculator = (numsArray) => {
 		quartiles,
 		IQR,
 		outliers,
+		'Five-number Summary': { min, quartiles, max },
 	};
 };
 
-console.log(calculator([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log(
+	calculator([
+		1,
+		1,
+		7,
+		8,
+		17,
+		18,
+		21,
+		27,
+		42,
+		45,
+		45,
+		46,
+		46,
+		54,
+		57,
+		78,
+	])
+);
