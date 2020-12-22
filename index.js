@@ -1,4 +1,4 @@
-const sortnums = (arr) => {
+const sortNums = (arr) => {
 	let nums = arr;
 
 	nums.sort((a, b) => {
@@ -71,12 +71,9 @@ const findMode = (nums) => {
 };
 
 const findMean = (nums) => {
-	let sum = 0;
 	let mean;
 
-	nums.forEach((num) => {
-		sum += num;
-	});
+	const sum = findSum(nums);
 
 	mean = sum / nums.length;
 
@@ -169,12 +166,50 @@ const findOutliers = (nums) => {
 	return outliers;
 };
 
-let sorted = sortnums([-11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 100]);
-console.log(findMode(sorted));
-console.log(findMean(sorted));
-console.log(findMedian(sorted));
-console.log(findMinMax(sorted));
-console.log(findRange(sorted));
-console.log(findQuartiles(sorted));
-console.log(findIQR(sorted));
-console.log(findOutliers(sorted));
+const findSum = (nums) => {
+	let sum = 0;
+
+	nums.forEach((n) => {
+		sum += n;
+	});
+
+	return sum;
+};
+
+const calculator = (numsArray) => {
+	// Sort
+	const sortedNums = sortNums(numsArray);
+	// Sum
+	const sum = findSum(sortedNums);
+	// Mode
+	const mode = findMode(sortedNums);
+	// Mean
+	const mean = findMean(sortedNums);
+	// Median
+	const median = findMedian(sortedNums);
+	// Min & Max
+	const { min, max } = findMinMax(sortedNums);
+	// Range
+	const range = findRange(sortedNums);
+	// Quartiles
+	const quartiles = findQuartiles(sortedNums);
+	// IQR
+	const IQR = findIQR(sortedNums);
+	// Outliers
+	const outliers = findOutliers(sortedNums);
+
+	return {
+		mode,
+		mean,
+		median,
+		min,
+		max,
+		sum,
+		range,
+		quartiles,
+		IQR,
+		outliers,
+	};
+};
+
+console.log(calculator([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
