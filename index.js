@@ -123,15 +123,19 @@ const findQuartiles = (nums) => {
 	// odd
 	if (nums.length % 2 !== 0) {
 		let midPoint = Math.floor(nums.length / 2);
-		console.log(nums[midPoint]);
-		q2 = findMedian(nums);
+
 		q1 = findMedian(nums.slice(0, midPoint));
+		q2 = findMedian(nums);
 		q3 = findMedian(nums.slice(midPoint + 1));
 	}
 
 	// even
 	if (nums.length % 2 === 0) {
-		console.log('even');
+		let midPoint = nums.length / 2;
+
+		q1 = findMedian(nums.slice(0, midPoint));
+		q2 = findMedian(nums);
+		q3 = findMedian(nums.slice(midPoint));
 	}
 
 	return {
@@ -143,7 +147,7 @@ const findQuartiles = (nums) => {
 
 const findOutliers = () => null;
 
-let sorted = sortnums([1, 2, 3, 4, 5, 6]);
+let sorted = sortnums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 console.log(findMode(sorted));
 console.log(findMean(sorted));
 console.log(findMedian(sorted));
